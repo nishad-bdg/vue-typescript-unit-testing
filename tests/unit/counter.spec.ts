@@ -4,8 +4,6 @@ import Counter from '@/components/Counter.vue'
 
 test('emit demo', async() =>{
     const wrapper = mount(Home)
-    // wrapper.findComponent(Counter).vm.$emit('custom')
-    // await wrapper.findComponent(Counter).vm.$nextTick()
     const getCounterData = wrapper.findComponent(Counter)
     getCounterData.vm.$emit('custom')
     await getCounterData.vm.$nextTick()
