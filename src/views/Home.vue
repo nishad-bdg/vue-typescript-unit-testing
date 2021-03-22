@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <p class="foo" v-if="emitted">Emitted!</p>
+    <Counter @custom="onCustom" />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { Component, Vue } from "vue-property-decorator";
+import Counter from "@/components/Counter.vue";
 
 @Component({
   components: {
-    HelloWorld,
+    Counter,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  public emitted = false;
+  public onCustom(): void {
+    this.emitted = true;
+  }
+}
 </script>
